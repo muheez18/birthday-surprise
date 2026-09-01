@@ -1,177 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>Happy Birthday Surprise 💕</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Nunito',sans-serif;background:linear-gradient(135deg,#ff9a9e 0%,#fad0c4 50%,#a18cd1 100%);min-height:100vh;display:flex;justify-content:center;align-items:center;overflow:hidden}
-    .phone-frame{width:100%;max-width:400px;height:92vh;max-height:820px;background:#fff;border-radius:36px;overflow:hidden;position:relative;box-shadow:0 25px 60px rgba(162,55,155,.45),0 0 0 8px #fff,0 0 0 12px #ff9a9e}
-    .screen{position:absolute;top:0;left:0;width:100%;height:100%;display:none;flex-direction:column;align-items:center;justify-content:center;padding:18px;background:repeating-linear-gradient(90deg,#fff8e7 0,#fff8e7 18px,#ffe9b5 18px,#ffe9b5 36px);overflow-y:auto;text-align:center}
-    .screen.active{display:flex}
-    .doodles{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1}
-    .doodle{position:absolute;font-size:18px;opacity:.85;animation:floaty 4s ease-in-out infinite}
-    @keyframes floaty{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-12px) rotate(8deg)}}
-    .title-text{font-family:'Pacifico',cursive;font-size:30px;color:#9b59b6;z-index:5;text-shadow:2px 2px 0 #fff;margin-bottom:8px}
-    .big-text{font-size:24px;font-weight:800;color:#8e44ad;z-index:5;line-height:1.3}
-    .subtitle{color:#7f8c8d;font-size:16px;z-index:5;margin:8px 0 16px}
-    .btn{background:linear-gradient(135deg,#a29bfe,#6c5ce7);color:#fff;border:none;padding:14px 32px;border-radius:50px;font-size:17px;font-weight:700;cursor:pointer;margin:8px;box-shadow:0 8px 0 #5b4bc4,0 12px 20px rgba(108,92,231,.3);transition:all .15s;font-family:'Nunito',sans-serif;z-index:5}
-    .btn:active{transform:translateY(4px);box-shadow:0 4px 0 #5b4bc4}
-    .btn.pink{background:linear-gradient(135deg,#fd79a8,#e84393);box-shadow:0 8px 0 #c0397a,0 12px 20px rgba(232,67,147,.3)}
-    .btn.pink:active{box-shadow:0 4px 0 #c0397a}
-    .pass-dots{display:flex;gap:14px;margin:18px 0;z-index:5}
-    .dot{width:18px;height:18px;border:3px solid #a29bfe;border-radius:50%;background:transparent;transition:.2s}
-    .dot.filled{background:#a29bfe;transform:scale(1.2)}
-    .keypad{display:grid;grid-template-columns:repeat(3,72px);gap:12px;z-index:5}
-    .key{width:72px;height:72px;border-radius:50%;background:#fff;border:3px solid #e0d4ff;font-size:26px;font-weight:800;color:#6c5ce7;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 5px 0 #d1c4f0;transition:.1s}
-    .key:active{transform:translateY(3px);box-shadow:0 2px 0 #d1c4f0;background:#f3eefc}
-    .cute-circle{width:170px;height:170px;border-radius:50%;border:7px solid #fd79a8;overflow:hidden;box-shadow:0 10px 25px rgba(253,121,168,.4);z-index:5;margin:10px 0;background:#fff}
-    .cute-circle img{width:100%;height:100%;object-fit:cover}
-    .heart-frame{width:200px;height:200px;background:#fd79a8;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(253,121,168,.45);z-index:5;margin:12px 0}
-    .heart-frame img{width:160px;height:160px;border-radius:50%;object-fit:cover;border:5px solid #fff}
-    .items-row{display:flex;gap:20px;justify-content:center;z-index:5;margin:24px 0;flex-wrap:wrap}
-    .item{width:95px;height:95px;background:#fff;border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 0 #d1c4f0,0 12px 20px rgba(0,0,0,.08);border:4px solid #a29bfe;font-size:36px;transition:.15s}
-    .item:active{transform:translateY(4px);box-shadow:0 4px 0 #d1c4f0}
-    .item span{font-size:12px;margin-top:4px;color:#6c5ce7;font-weight:800}
-    .letter-box{background:#fffef8;border:3px dashed #fd79a8;border-radius:20px;padding:22px;max-width:340px;z-index:5;box-shadow:0 10px 25px rgba(0,0,0,.08);text-align:left}
-    .letter-box h3{color:#e84393;font-size:22px;margin-bottom:12px;text-align:center;font-family:'Pacifico',cursive}
-    .letter-box p{color:#2d3436;line-height:1.65;font-size:15px;margin-bottom:11px}
-    .memories-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:340px;z-index:5;margin:12px 0}
-    .memories-grid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:14px;border:3px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.12)}
-    .video-box{width:100%;max-width:340px;aspect-ratio:16/9;border-radius:18px;overflow:hidden;z-index:5;box-shadow:0 12px 30px rgba(0,0,0,.2);background:#000}
-    .video-box iframe{width:100%;height:100%;border:none}
-    .loading-bar{width:220px;height:14px;background:#f8d7e8;border-radius:20px;overflow:hidden;z-index:5;margin:18px 0 10px;border:2px solid #fd79a8}
-    .loading-fill{height:100%;width:0%;background:linear-gradient(90deg,#fd79a8,#a29bfe,#74b9ff);border-radius:20px;transition:width .3s}
-    .photo-frame{background:#fff;padding:12px;border-radius:16px;box-shadow:0 12px 30px rgba(0,0,0,.15);z-index:5;transform:rotate(-2deg);margin:16px 0;border:4px solid #fd79a8}
-    .photo-frame img{width:190px;height:190px;object-fit:cover;border-radius:10px;display:block}
-    .photo-frame .caption{text-align:center;font-size:14px;color:#e84393;margin-top:8px;font-weight:700}
-    .confetti-piece{position:absolute;width:10px;height:16px;top:-20px;z-index:50;animation:fall linear forwards}
-    @keyframes fall{to{transform:translateY(100vh) rotate(720deg);opacity:0}}
-    .error-shake{animation:shake .4s}
-    @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Happy Birthday 💛</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:#1a1a2e;min-height:100vh;display:flex;justify-content:center;align-items:center;overflow:hidden}
+.phone{width:100%;max-width:390px;height:100vh;max-height:844px;background:#fff;position:relative;overflow:hidden;box-shadow:0 0 40px rgba(0,0,0,.5)}
+.screen{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;padding:20px 16px;background:repeating-linear-gradient(90deg,#fff9e6 0px,#fff9e6 22px,#ffeaa7 22px,#ffeaa7 44px);overflow-y:auto;text-align:center}
+.screen.active{display:flex}
+.stars{position:absolute;inset:0;pointer-events:none;z-index:1}
+.star{position:absolute;font-size:14px;color:#a29bfe;animation:twinkle 2.2s infinite alternate}
+@keyframes twinkle{from{opacity:.35;transform:scale(.8)}to{opacity:1;transform:scale(1.15)}}
+.scallop{width:210px;height:210px;background:#c9b1ff;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;z-index:5;box-shadow:0 8px 25px rgba(162,155,254,.35)}
+.scallop-inner{width:175px;height:175px;border-radius:50%;background:#fff;overflow:hidden;display:flex;align-items:center;justify-content:center;border:6px solid #fff}
+.scallop-inner img{width:100%;height:100%;object-fit:cover}
+.title{font-family:'Pacifico',cursive;color:#6c5ce7;font-size:28px;z-index:5;margin:12px 0 6px;text-shadow:1px 1px 0 #fff}
+.sub{color:#636e72;font-size:16px;z-index:5;margin-bottom:14px;line-height:1.4}
+.btn{background:#a29bfe;color:#fff;border:none;padding:13px 34px;border-radius:50px;font-size:17px;font-weight:700;cursor:pointer;z-index:5;box-shadow:0 6px 0 #7c6fd6;transition:.12s;font-family:'Nunito',sans-serif;margin:6px}
+.btn:active{transform:translateY(3px);box-shadow:0 3px 0 #7c6fd6}
+.btn.pink{background:#fd79a8;box-shadow:0 6px 0 #e15b8d}
+.btn.pink:active{box-shadow:0 3px 0 #e15b8d}
+.dots{display:flex;gap:12px;margin:16px 0;z-index:5}
+.dot{width:16px;height:16px;border:2.5px solid #a29bfe;border-radius:50%;background:transparent;transition:.2s}
+.dot.on{background:#a29bfe}
+.keypad{display:grid;grid-template-columns:repeat(3,68px);gap:11px;z-index:5}
+.key{width:68px;height:68px;border-radius:50%;background:#fff;border:2px solid #e0d4ff;font-size:24px;font-weight:800;color:#6c5ce7;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 0 #d4c8f0}
+.key:active{transform:translateY(2px);box-shadow:0 2px 0 #d4c8f0}
+.heart-bg{width:200px;height:200px;background:#fd79a8;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:5;box-shadow:0 10px 28px rgba(253,121,168,.4)}
+.heart-bg img{width:155px;height:155px;border-radius:50%;object-fit:cover;border:5px solid #fff}
+.items{display:flex;gap:22px;justify-content:center;z-index:5;margin:26px 0}
+.item{width:90px;height:90px;background:#fff;border-radius:22px;border:3px solid #a29bfe;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 7px 0 #d4c8f0;font-size:34px}
+.item:active{transform:translateY(3px);box-shadow:0 4px 0 #d4c8f0}
+.item span{font-size:11px;margin-top:3px;color:#6c5ce7;font-weight:800}
+.letter{background:#fffef7;border:2.5px dashed #a29bfe;border-radius:18px;padding:20px;max-width:340px;z-index:5;text-align:left;box-shadow:0 8px 22px rgba(0,0,0,.07)}
+.letter h3{color:#6c5ce7;font-size:20px;margin-bottom:12px;text-align:center;font-family:'Pacifico',cursive}
+.letter p{color:#2d3436;font-size:14.5px;line-height:1.6;margin-bottom:10px}
+.memo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;max-width:340px;z-index:5;margin:12px 0}
+.memo-grid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;border:3px solid #fff;box-shadow:0 3px 10px rgba(0,0,0,.1)}
+.photo-box{background:#fff;padding:10px;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,.12);z-index:5;transform:rotate(-2deg);margin:14px 0;border:4px solid #fd79a8}
+.photo-box img{width:180px;height:180px;object-fit:cover;border-radius:8px;display:block}
+.photo-box .cap{text-align:center;font-size:13px;color:#e84393;margin-top:6px;font-weight:700}
+.vid{width:100%;max-width:340px;aspect-ratio:16/9;border-radius:16px;overflow:hidden;z-index:5;box-shadow:0 10px 28px rgba(0,0,0,.18);background:#000}
+.vid iframe{width:100%;height:100%;border:none}
+.load-bar{width:210px;height:12px;background:#f8d7e8;border-radius:20px;overflow:hidden;z-index:5;margin:16px 0 8px;border:2px solid #fd79a8}
+.load-fill{height:100%;width:0%;background:linear-gradient(90deg,#fd79a8,#a29bfe);border-radius:20px;transition:width .25s}
+.confetti{position:absolute;width:9px;height:14px;top:-15px;z-index:40;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+.shake{animation:shake .35s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.big{font-size:22px;font-weight:800;color:#6c5ce7;z-index:5;line-height:1.35;max-width:320px}
+</style>
 </head>
 <body>
-  <div class="phone-frame">
-    <div class="screen active" id="s-pass">
-      <div class="doodles" id="d1"></div>
-      <div style="font-size:42px;z-index:5">🐶💛</div>
-      <div class="cute-circle"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=80" alt="cute dog"></div>
-      <h2 class="title-text" style="font-size:26px">Enter Passcode</h2>
-      <div class="pass-dots" id="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
-      <div class="keypad" id="keys"></div>
-      <p class="subtitle" style="margin-top:14px;font-size:13px">Hint: the year she was born 😉</p>
-    </div>
-    <div class="screen" id="s-wanna">
-      <div class="doodles" id="d2"></div>
-      <div class="title-text">Hey cutie!</div>
-      <p class="subtitle">I made something special for you<br>do you wanna see it? 🥺</p>
-      <div class="cute-circle"><img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&q=80" alt="golden"></div>
-      <div style="z-index:5;display:flex;gap:12px;margin-top:10px">
-        <button class="btn" onclick="go('s-good')">Yes 💛</button>
-        <button class="btn pink" onclick="go('s-no')">No 😤</button>
-      </div>
-    </div>
-    <div class="screen" id="s-no">
-      <div class="doodles" id="d3"></div>
-      <div style="font-size:50px;z-index:5">😤🐶</div>
-      <h2 class="title-text" style="color:#e84393;font-size:28px">SERIOUSLY!?</h2>
-      <p class="subtitle" style="font-size:18px">how dare you hmph 😤</p>
-      <div class="cute-circle" style="border-color:#fd79a8"><img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400&q=80" alt="angry dog"></div>
-      <button class="btn" onclick="go('s-wanna')">Go back 💕</button>
-    </div>
-    <div class="screen" id="s-good">
-      <div class="doodles" id="d4"></div>
-      <div class="heart-frame"><img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=400&q=80" alt="corgi"></div>
-      <h2 class="big-text">That's a good girl 🌻</h2>
-      <p class="subtitle">You always say yes to surprises</p>
-      <button class="btn" onclick="go('s-bday')">Click me ✨</button>
-    </div>
-    <div class="screen" id="s-bday">
-      <div class="doodles" id="d5"></div>
-      <div class="title-text" style="font-size:38px;line-height:1.1">Happy<br>Birthday!</div>
-      <div class="photo-frame"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=80" id="mainPhoto" alt="main photo"><div class="caption">You ✨</div></div>
-      <p class="subtitle">I prepared some little surprises...</p>
-      <button class="btn" onclick="go('s-items')">Open gifts 🎁</button>
-    </div>
-    <div class="screen" id="s-items">
-      <div class="doodles" id="d6"></div>
-      <div class="title-text" style="font-size:24px">click each one to open</div>
-      <div class="items-row">
-        <div class="item" onclick="go('s-memo')">📷<span>Photos</span></div>
-        <div class="item" onclick="go('s-letter')">💌<span>Letter</span></div>
-        <div class="item" onclick="go('s-song')">🎵<span>Song</span></div>
-      </div>
-      <button class="btn pink" onclick="go('s-finalmsg')">Next →</button>
-    </div>
-    <div class="screen" id="s-memo">
-      <div class="doodles" id="d7"></div>
-      <div class="title-text" style="font-size:32px">Memories</div>
-      <p class="subtitle">moments of us 💖</p>
-      <div class="memories-grid">
-        <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=300&q=80">
-        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=300&q=80">
-        <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=300&q=80">
-        <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=300&q=80">
-        <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=300&q=80">
-        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=300&q=80">
-      </div>
-      <button class="btn" onclick="go('s-items')">Back</button>
-    </div>
-    <div class="screen" id="s-letter">
-      <div class="doodles" id="d8"></div>
-      <div class="letter-box">
-        <h3>Happy Birthday, my friend 💖</h3>
-        <p>I don’t even know where to start… You’ve been one of the most special people in my life. The way you laugh, the way you care, the way you always show up — it means more than you’ll ever know.</p>
-        <p>Through every random conversation, every inside joke, every quiet moment and every crazy one, you’ve made ordinary days feel warmer. Thank you for being my safe place and my partner in crime.</p>
-        <p>This year I hope life gives you everything soft and beautiful that you’ve been waiting for. You deserve the purest happiness.</p>
-        <p style="text-align:center;font-weight:800;color:#e84393;margin-top:14px">I love you so much 💕🐾</p>
-      </div>
-      <button class="btn" style="margin-top:16px" onclick="go('s-items')">Back</button>
-    </div>
-    <div class="screen" id="s-song">
-      <div class="doodles" id="d9"></div>
-      <div class="title-text" style="font-size:24px">A song for you 🎵</div>
-      <p class="subtitle">O Haareya Main Dil Haareya</p>
-      <div class="video-box"><iframe id="ytplayer" src="https://www.youtube.com/embed/JpSFL_bHtBA?enablejsapi=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
-      <p class="subtitle" style="font-size:13px;margin-top:10px">Arijit Singh • Meri Pyaari Bindu</p>
-      <button class="btn" onclick="go('s-items')">Back</button>
-    </div>
-    <div class="screen" id="s-finalmsg">
-      <div class="doodles" id="d10"></div>
-      <div style="font-size:48px;z-index:5">🐶✨</div>
-      <h2 class="big-text" style="max-width:320px;font-size:22px">May all the good things you’ve been waiting for finally find you this year ✨</h2>
-      <button class="btn" style="margin-top:22px" onclick="go('s-hug')">Continue 💕</button>
-    </div>
-    <div class="screen" id="s-hug">
-      <div class="doodles" id="d11"></div>
-      <div style="font-size:70px;z-index:5;animation:floaty 2s infinite">🐻🤗🐻</div>
-      <div class="title-text" style="font-size:26px">Virtual hug loading...</div>
-      <div class="loading-bar"><div class="loading-fill" id="hugBar"></div></div>
-      <p class="subtitle" id="hugText">Sending all my love...</p>
-      <button class="btn" id="hugBtn" style="display:none" onclick="startConfettiThenEnd()">Receive hug 💕</button>
-    </div>
-    <div class="screen" id="s-end">
-      <div class="doodles" id="d12"></div>
-      <div style="font-size:56px;z-index:5">🎂🎉💖</div>
-      <div class="title-text" style="font-size:34px">Happy Birthday!</div>
-      <div class="letter-box" style="margin-top:10px;max-height:280px;overflow-y:auto">
-        <p style="font-size:15px;line-height:1.6">My dearest friend,<br><br>On your special day I just want you to know how deeply grateful I am to have you in my life. You bring light into the room without even trying. Your kindness, your chaos, your quiet strength — everything about you makes the world softer.<br><br>Thank you for the late-night talks, the silly laughs, the times you believed in me when I didn’t, and for simply existing as you. I hope this year wraps you in the softest love, the biggest wins, and moments that make your heart feel full.<br><br>You are loved more than words can hold.<br><br>Forever your person 🫶</p>
-      </div>
-      <button class="btn" style="margin-top:14px" onclick="go('s-pass')">Replay 🔄</button>
-    </div>
+<div class="phone">
+<div class="screen active" id="p">
+  <div class="stars" id="st1"></div>
+  <div class="scallop"><div class="scallop-inner"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=80" alt="dog"></div></div>
+  <div class="title" style="font-size:24px;margin-top:18px">Enter a passcode</div>
+  <div class="dots" id="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+  <div class="keypad" id="keys"></div>
+  <p class="sub" style="font-size:13px;margin-top:14px">Hint: 2002 😉</p>
+</div>
+<div class="screen" id="hey">
+  <div class="stars" id="st2"></div>
+  <div class="title">Hey!</div>
+  <p class="sub">I made something for you<br>do you wanna see it?</p>
+  <div class="scallop" style="background:#fdcb6e"><div class="scallop-inner"><img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&q=80" alt="golden"></div></div>
+  <div style="display:flex;gap:14px;margin-top:18px;z-index:5">
+    <button class="btn" onclick="go('good')">Yes</button>
+    <button class="btn pink" onclick="go('no')">No</button>
   </div>
-  <script>
-    const doodleEmojis=['⭐','✨','💛','💖','🌸','🎀','🐶','🐻','🍀','💫','🥰','🎈','🧁','🌙','🦋'];
-    function fillDoodles(id){const el=document.getElementById(id);if(!el)return;el.innerHTML='';for(let i=0;i<28;i++){const d=document.createElement('div');d.className='doodle';d.textContent=doodleEmojis[Math.floor(Math.random()*doodleEmojis.length)];d.style.left=Math.random()*100+'%';d.style.top=Math.random()*100+'%';d.style.fontSize=(14+Math.random()*16)+'px';d.style.animationDelay=(Math.random()*3)+'s';d.style.opacity=.7+Math.random()*.3;el.appendChild(d)}}
-    for(let i=1;i<=12;i++)fillDoodles('d'+i);
-    let code='';const correct='2002';const dots=document.querySelectorAll('.dot');const keysEl=document.getElementById('keys');
-    ['1','2','3','4','5','6','7','8','9','','0','⌫'].forEach(k=>{const b=document.createElement('div');b.className='key';b.textContent=k||' ';if(k==='⌫')b.style.fontSize='20px';b.onclick=()=>{if(k==='⌫'){if(code.length){code=code.slice(0,-1);dots[code.length].classList.remove('filled')}return}if(!k||code.length>=4)return;code+=k;dots[code.length-1].classList.add('filled');if(code.length===4){setTimeout(()=>{if(code===correct){go('s-wanna')}else{document.getElementById('s-pass').classList.add('error-shake');setTimeout(()=>document.getElementById('s-pass').classList.remove('error-shake'),400)}code='';dots.forEach(d=>d.classList.remove('filled'))},350)}};keysEl.appendChild(b)});
-    function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');if(id==='s-hug')startHug();if(id==='s-song'){document.getElementById('ytplayer').src='https://www.youtube.com/embed/JpSFL_bHtBA?autoplay=1&rel=0'}}
-    function startHug(){const bar=document.getElementById('hugBar');const txt=document.getElementById('hugText');const btn=document.getElementById('hugBtn');bar.style.width='0%';btn.style.display='none';let w=0;const msgs=['Sending all my love...','Wrapping you tight...','Almost there...','Hug ready!! 🤗'];const t=setInterval(()=>{w+=1.8;bar.style.width=w+'%';if(w>25)txt.textContent=msgs[1];if(w>55)txt.textContent=msgs[2];if(w>85)txt.textContent=msgs[3];if(w>=100){clearInterval(t);btn.style.display='inline-block'}},30)}
-    function startConfettiThenEnd(){const colors=['#fd79a8','#a29bfe','#74b9ff','#ffeaa7','#55efc4','#ff7675','#fdcb6e'];for(let i=0;i<80;i++){const p=document.createElement('div');p.className='confetti-piece';p.style.left=Math.random()*100+'%';p.style.background=colors[Math.floor(Math.random()*colors.length)];p.style.animationDuration=(2+Math.random()*2.5)+'s';p.style.animationDelay=(Math.random()*.6)+'s';p.style.width=(8+Math.random()*8)+'px';p.style.height=(10+Math.random()*12)+'px';p.style.borderRadius=Math.random()>.5?'50%':'2px';document.querySelector('.phone-frame').appendChild(p);setTimeout(()=>p.remove(),5000)}setTimeout(()=>go('s-end'),900)}
-  </script>
+</div>
+<div class="screen" id="no">
+  <div class="stars" id="st3"></div>
+  <div class="title" style="color:#e84393;font-size:26px">SERIOUSLY!?</div>
+  <p class="sub" style="font-size:18px">how dare you hmph 😤</p>
+  <div class="scallop" style="background:#fd79a8"><div class="scallop-inner"><img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400&q=80" alt="angry"></div></div>
+  <button class="btn" style="margin-top:18px" onclick="go('hey')">Go back</button>
+</div>
+<div class="screen" id="good">
+  <div class="stars" id="st4"></div>
+  <div class="heart-bg"><img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=400&q=80" alt="corgi"></div>
+  <div class="title" style="font-size:26px;margin-top:16px">That's a good boy 🌻</div>
+  <button class="btn" style="margin-top:20px" onclick="go('bday')">Click</button>
+</div>
+<div class="screen" id="bday">
+  <div class="stars" id="st5"></div>
+  <div class="title" style="font-size:36px;line-height:1.1">Happy<br>Birthday!</div>
+  <div class="photo-box"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=80" id="mainPic" alt="photo"><div class="cap">You ✨</div></div>
+  <p class="sub">I prepared some surprises for you...</p>
+  <button class="btn" onclick="go('items')">Open gifts</button>
+</div>
+<div class="screen" id="items">
+  <div class="stars" id="st6"></div>
+  <div class="title" style="font-size:22px">click on each item to open</div>
+  <div class="items">
+    <div class="item" onclick="go('memo')">📷<span>Photos</span></div>
+    <div class="item" onclick="go('letter')">💌<span>Letter</span></div>
+    <div class="item" onclick="go('song')">🎵<span>Song</span></div>
+  </div>
+  <button class="btn pink" onclick="go('final')">Next →</button>
+</div>
+<div class="screen" id="memo">
+  <div class="stars" id="st7"></div>
+  <div class="title" style="font-size:32px">Memories</div>
+  <p class="sub">Moments of us 💖</p>
+  <div class="memo-grid">
+    <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=300&q=80">
+    <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=300&q=80">
+    <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=300&q=80">
+    <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=300&q=80">
+    <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=300&q=80">
+    <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=300&q=80">
+  </div>
+  <button class="btn" onclick="go('items')">Back</button>
+</div>
+<div class="screen" id="letter">
+  <div class="stars" id="st8"></div>
+  <div class="letter">
+    <h3>Happy Birthday, Bestie! 💖</h3>
+    <p>I honestly don't know how to put into words how grateful I am to have you in my life. Thank you for being my biggest supporter, my partner in crime, and the person I can always count on.</p>
+    <p>Through all the laughs, random conversations, inside jokes, and even the tough days, you've made life so much better just by being a part of it.</p>
+    <p>I hope this year brings you everything you've been wishing for — happiness, success, peace, and endless reasons to smile.</p>
+    <p style="text-align:center;font-weight:800;color:#6c5ce7;margin-top:12px">I love you so much! 💕🐾</p>
+  </div>
+  <button class="btn" style="margin-top:16px" onclick="go('items')">Back</button>
+</div>
+<div class="screen" id="song">
+  <div class="stars" id="st9"></div>
+  <div class="title" style="font-size:22px">A song for you 🎵</div>
+  <p class="sub">O Haareya Main Dil Haareya</p>
+  <div class="vid"><iframe id="yt" src="https://www.youtube.com/embed/JpSFL_bHtBA?rel=0" allow="autoplay;encrypted-media" allowfullscreen></iframe></div>
+  <p class="sub" style="font-size:13px;margin-top:10px">Arijit Singh • Meri Pyaari Bindu</p>
+  <button class="btn" onclick="go('items')">Back</button>
+</div>
+<div class="screen" id="final">
+  <div class="stars" id="st10"></div>
+  <div style="font-size:48px;z-index:5">🐶</div>
+  <div class="big">May all the good things you've been waiting for finally find you this year ✨</div>
+  <button class="btn" style="margin-top:22px" onclick="go('hug')">Continue</button>
+</div>
+<div class="screen" id="hug">
+  <div class="stars" id="st11"></div>
+  <div style="font-size:72px;z-index:5">🐻🤗🐻</div>
+  <div class="title" style="font-size:24px">Virtual hug loading...</div>
+  <div class="load-bar"><div class="load-fill" id="bar"></div></div>
+  <p class="sub" id="hugTxt">Sending all my love...</p>
+  <button class="btn" id="hugBtn" style="display:none" onclick="poppers()">Receive hug 💕</button>
+</div>
+<div class="screen" id="end">
+  <div class="stars" id="st12"></div>
+  <div style="font-size:52px;z-index:5">🎂🎉💖</div>
+  <div class="title" style="font-size:32px">Happy Birthday!</div>
+  <div class="letter" style="margin-top:10px;max-height:260px;overflow-y:auto">
+    <p style="font-size:14.5px;line-height:1.6">My dearest friend,<br><br>On your special day I just want you to know how deeply grateful I am to have you in my life. You bring light into the room without even trying. Your kindness, your chaos, your quiet strength — everything about you makes the world softer.<br><br>Thank you for the late-night talks, the silly laughs, the times you believed in me when I didn’t, and for simply existing as you. I hope this year wraps you in the softest love, the biggest wins, and moments that make your heart feel full.<br><br>You are loved more than words can hold.<br><br>Forever your person 🫶</p>
+  </div>
+  <button class="btn" style="margin-top:14px" onclick="go('p')">Replay</button>
+</div>
+</div>
+<script>
+const emojis=['⭐','✨','💛','💖','🌸','🎀','🐶','🐻','🍀','💫','🥰','🎈','🌙','🦋','⭐'];
+function stars(id){const el=document.getElementById(id);if(!el)return;for(let i=0;i<22;i++){const s=document.createElement('div');s.className='star';s.textContent=emojis[Math.floor(Math.random()*emojis.length)];s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.fontSize=(12+Math.random()*14)+'px';s.style.animationDelay=Math.random()*2+'s';s.style.color=['#a29bfe','#fd79a8','#74b9ff','#ffeaa7','#55efc4'][Math.floor(Math.random()*5)];el.appendChild(s)}}
+for(let i=1;i<=12;i++)stars('st'+i);
+let code='';const ok='2002';const dots=document.querySelectorAll('.dot');const keys=document.getElementById('keys');
+['1','2','3','4','5','6','7','8','9','','0','⌫'].forEach(k=>{const b=document.createElement('div');b.className='key';b.textContent=k||' ';if(k==='⌫')b.style.fontSize='18px';b.onclick=()=>{if(k==='⌫'){if(code.length){code=code.slice(0,-1);dots[code.length].classList.remove('on')}return}if(!k||code.length>=4)return;code+=k;dots[code.length-1].classList.add('on');if(code.length===4){setTimeout(()=>{if(code===ok)go('hey');else{document.getElementById('p').classList.add('shake');setTimeout(()=>document.getElementById('p').classList.remove('shake'),350)}code='';dots.forEach(d=>d.classList.remove('on'))},300)}};keys.appendChild(b)});
+function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');if(id==='hug')startHug();if(id==='song'){document.getElementById('yt').src='https://www.youtube.com/embed/JpSFL_bHtBA?autoplay=1&rel=0'}}
+function startHug(){const bar=document.getElementById('bar');const txt=document.getElementById('hugTxt');const btn=document.getElementById('hugBtn');bar.style.width='0%';btn.style.display='none';let w=0;const msgs=['Sending all my love...','Wrapping you tight...','Almost there...','Hug ready!! 🤗'];const t=setInterval(()=>{w+=2;bar.style.width=w+'%';if(w>30)txt.textContent=msgs[1];if(w>60)txt.textContent=msgs[2];if(w>85)txt.textContent=msgs[3];if(w>=100){clearInterval(t);btn.style.display='inline-block'}},35)}
+function poppers(){const cols=['#fd79a8','#a29bfe','#74b9ff','#ffeaa7','#55efc4','#ff7675','#fdcb6e'];for(let i=0;i<70;i++){const c=document.createElement('div');c.className='confetti';c.style.left=Math.random()*100+'%';c.style.background=cols[Math.floor(Math.random()*cols.length)];c.style.animationDuration=(1.8+Math.random()*2.2)+'s';c.style.animationDelay=Math.random()*0.5+'s';c.style.width=(7+Math.random()*8)+'px';c.style.height=(10+Math.random()*10)+'px';c.style.borderRadius=Math.random()>.5?'50%':'2px';document.querySelector('.phone').appendChild(c);setTimeout(()=>c.remove(),4500)}setTimeout(()=>go('end'),800)}
+</script>
 </body>
 </html>
