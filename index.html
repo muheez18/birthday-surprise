@@ -2,240 +2,176 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <title>Happy Birthday Surprise 💕</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Nunito', sans-serif; background: #1a1a2e; min-height: 100vh; display: flex; justify-content: center; align-items: center; overflow-x: hidden; }
-    .phone-frame { width: 100%; max-width: 420px; height: 90vh; max-height: 850px; background: #fff; border-radius: 30px; overflow: hidden; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
-    .screen { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: none; flex-direction: column; align-items: center; justify-content: center; padding: 20px; background: repeating-linear-gradient(90deg, #fff9e6 0px, #fff9e6 20px, #ffeaa7 20px, #ffeaa7 40px); overflow-y: auto; }
-    .screen.active { display: flex; }
-    .stars { position: absolute; width: 100%; height: 100%; pointer-events: none; overflow: hidden; }
-    .star { position: absolute; color: #a29bfe; font-size: 14px; animation: twinkle 2s infinite alternate; }
-    @keyframes twinkle { from { opacity: 0.4; transform: scale(0.8); } to { opacity: 1; transform: scale(1.2); } }
-    h1, h2 { color: #6c5ce7; text-align: center; z-index: 2; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
-    .cute-img { width: 180px; height: 180px; object-fit: cover; border-radius: 50%; border: 6px solid #a29bfe; box-shadow: 0 8px 20px rgba(108, 92, 231, 0.3); z-index: 2; margin: 15px 0; background: #fff; }
-    .btn { background: #a29bfe; color: white; border: none; padding: 14px 36px; border-radius: 50px; font-size: 18px; font-weight: 700; cursor: pointer; margin: 10px; box-shadow: 0 6px 15px rgba(162, 155, 254, 0.4); transition: all 0.2s; font-family: 'Nunito', sans-serif; z-index: 2; }
-    .btn:hover, .btn:active { transform: scale(1.05); background: #6c5ce7; }
-    .btn.secondary { background: #fd79a8; }
-    .btn.secondary:hover { background: #e84393; }
-    .btn-group { display: flex; gap: 15px; z-index: 2; flex-wrap: wrap; justify-content: center; }
-    .passcode-display { display: flex; gap: 12px; margin: 20px 0; z-index: 2; }
-    .passcode-dot { width: 18px; height: 18px; border: 2px solid #a29bfe; border-radius: 50%; background: transparent; transition: all 0.2s; }
-    .passcode-dot.filled { background: #a29bfe; }
-    .keypad { display: grid; grid-template-columns: repeat(3, 70px); gap: 12px; z-index: 2; margin-top: 10px; }
-    .key { width: 70px; height: 70px; border-radius: 50%; background: white; border: 2px solid #dfe6e9; font-size: 24px; font-weight: 700; color: #2d3436; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.08); transition: all 0.15s; }
-    .key:active { background: #a29bfe; color: white; transform: scale(0.95); }
-    .snoopy-frame { width: 200px; height: 200px; border-radius: 50%; border: 8px solid #a29bfe; background: white; display: flex; align-items: center; justify-content: center; overflow: hidden; z-index: 2; box-shadow: 0 10px 25px rgba(162, 155, 254, 0.4); }
-    .snoopy-frame img { width: 100%; height: 100%; object-fit: cover; }
-    .letter-box { background: #fffef5; border: 2px dashed #a29bfe; border-radius: 16px; padding: 25px; max-width: 340px; z-index: 2; box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
-    .letter-box p { color: #2d3436; line-height: 1.6; font-size: 15px; margin-bottom: 12px; }
-    .letter-box h3 { color: #6c5ce7; margin-bottom: 15px; font-size: 22px; }
-    .memories-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; max-width: 340px; z-index: 2; margin: 15px 0; }
-    .memories-grid img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 12px; border: 3px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-    .items-row { display: flex; gap: 25px; justify-content: center; z-index: 2; margin: 30px 0; flex-wrap: wrap; }
-    .item { width: 90px; height: 90px; background: white; border-radius: 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: all 0.2s; border: 3px solid #a29bfe; font-size: 40px; }
-    .item:hover { transform: translateY(-8px) scale(1.05); box-shadow: 0 12px 25px rgba(162, 155, 254, 0.4); }
-    .item span { font-size: 12px; margin-top: 4px; color: #6c5ce7; font-weight: 700; }
-    .video-container { width: 100%; max-width: 340px; aspect-ratio: 16/9; border-radius: 16px; overflow: hidden; z-index: 2; box-shadow: 0 10px 30px rgba(0,0,0,0.15); background: #000; }
-    .video-container iframe { width: 100%; height: 100%; border: none; }
-    .title-text { font-family: 'Pacifico', cursive; font-size: 32px; color: #6c5ce7; text-align: center; z-index: 2; margin-bottom: 10px; }
-    .subtitle { color: #636e72; text-align: center; z-index: 2; margin-bottom: 15px; font-size: 16px; }
-    .floating { animation: float 3s ease-in-out infinite; }
-    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
-    .loading-bar { width: 200px; height: 12px; background: #dfe6e9; border-radius: 10px; overflow: hidden; z-index: 2; margin-top: 20px; }
-    .loading-progress { height: 100%; background: linear-gradient(90deg, #a29bfe, #fd79a8); width: 0%; transition: width 0.3s; border-radius: 10px; }
-    .photo-frame { background: white; padding: 12px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 2; transform: rotate(-3deg); margin: 20px 0; }
-    .photo-frame img { width: 200px; height: 200px; object-fit: cover; border-radius: 8px; display: block; }
-    .photo-frame .caption { text-align: center; font-size: 13px; color: #636e72; margin-top: 8px; font-weight: 600; }
-    .big-text { font-size: 28px; font-weight: 800; color: #6c5ce7; text-align: center; z-index: 2; line-height: 1.3; }
-    .small-note { font-size: 13px; color: #b2bec3; text-align: center; margin-top: 15px; z-index: 2; }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Nunito',sans-serif;background:linear-gradient(135deg,#ff9a9e 0%,#fad0c4 50%,#a18cd1 100%);min-height:100vh;display:flex;justify-content:center;align-items:center;overflow:hidden}
+    .phone-frame{width:100%;max-width:400px;height:92vh;max-height:820px;background:#fff;border-radius:36px;overflow:hidden;position:relative;box-shadow:0 25px 60px rgba(162,55,155,.45),0 0 0 8px #fff,0 0 0 12px #ff9a9e}
+    .screen{position:absolute;top:0;left:0;width:100%;height:100%;display:none;flex-direction:column;align-items:center;justify-content:center;padding:18px;background:repeating-linear-gradient(90deg,#fff8e7 0,#fff8e7 18px,#ffe9b5 18px,#ffe9b5 36px);overflow-y:auto;text-align:center}
+    .screen.active{display:flex}
+    .doodles{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+    .doodle{position:absolute;font-size:18px;opacity:.85;animation:floaty 4s ease-in-out infinite}
+    @keyframes floaty{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-12px) rotate(8deg)}}
+    .title-text{font-family:'Pacifico',cursive;font-size:30px;color:#9b59b6;z-index:5;text-shadow:2px 2px 0 #fff;margin-bottom:8px}
+    .big-text{font-size:24px;font-weight:800;color:#8e44ad;z-index:5;line-height:1.3}
+    .subtitle{color:#7f8c8d;font-size:16px;z-index:5;margin:8px 0 16px}
+    .btn{background:linear-gradient(135deg,#a29bfe,#6c5ce7);color:#fff;border:none;padding:14px 32px;border-radius:50px;font-size:17px;font-weight:700;cursor:pointer;margin:8px;box-shadow:0 8px 0 #5b4bc4,0 12px 20px rgba(108,92,231,.3);transition:all .15s;font-family:'Nunito',sans-serif;z-index:5}
+    .btn:active{transform:translateY(4px);box-shadow:0 4px 0 #5b4bc4}
+    .btn.pink{background:linear-gradient(135deg,#fd79a8,#e84393);box-shadow:0 8px 0 #c0397a,0 12px 20px rgba(232,67,147,.3)}
+    .btn.pink:active{box-shadow:0 4px 0 #c0397a}
+    .pass-dots{display:flex;gap:14px;margin:18px 0;z-index:5}
+    .dot{width:18px;height:18px;border:3px solid #a29bfe;border-radius:50%;background:transparent;transition:.2s}
+    .dot.filled{background:#a29bfe;transform:scale(1.2)}
+    .keypad{display:grid;grid-template-columns:repeat(3,72px);gap:12px;z-index:5}
+    .key{width:72px;height:72px;border-radius:50%;background:#fff;border:3px solid #e0d4ff;font-size:26px;font-weight:800;color:#6c5ce7;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 5px 0 #d1c4f0;transition:.1s}
+    .key:active{transform:translateY(3px);box-shadow:0 2px 0 #d1c4f0;background:#f3eefc}
+    .cute-circle{width:170px;height:170px;border-radius:50%;border:7px solid #fd79a8;overflow:hidden;box-shadow:0 10px 25px rgba(253,121,168,.4);z-index:5;margin:10px 0;background:#fff}
+    .cute-circle img{width:100%;height:100%;object-fit:cover}
+    .heart-frame{width:200px;height:200px;background:#fd79a8;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(253,121,168,.45);z-index:5;margin:12px 0}
+    .heart-frame img{width:160px;height:160px;border-radius:50%;object-fit:cover;border:5px solid #fff}
+    .items-row{display:flex;gap:20px;justify-content:center;z-index:5;margin:24px 0;flex-wrap:wrap}
+    .item{width:95px;height:95px;background:#fff;border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 0 #d1c4f0,0 12px 20px rgba(0,0,0,.08);border:4px solid #a29bfe;font-size:36px;transition:.15s}
+    .item:active{transform:translateY(4px);box-shadow:0 4px 0 #d1c4f0}
+    .item span{font-size:12px;margin-top:4px;color:#6c5ce7;font-weight:800}
+    .letter-box{background:#fffef8;border:3px dashed #fd79a8;border-radius:20px;padding:22px;max-width:340px;z-index:5;box-shadow:0 10px 25px rgba(0,0,0,.08);text-align:left}
+    .letter-box h3{color:#e84393;font-size:22px;margin-bottom:12px;text-align:center;font-family:'Pacifico',cursive}
+    .letter-box p{color:#2d3436;line-height:1.65;font-size:15px;margin-bottom:11px}
+    .memories-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:340px;z-index:5;margin:12px 0}
+    .memories-grid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:14px;border:3px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.12)}
+    .video-box{width:100%;max-width:340px;aspect-ratio:16/9;border-radius:18px;overflow:hidden;z-index:5;box-shadow:0 12px 30px rgba(0,0,0,.2);background:#000}
+    .video-box iframe{width:100%;height:100%;border:none}
+    .loading-bar{width:220px;height:14px;background:#f8d7e8;border-radius:20px;overflow:hidden;z-index:5;margin:18px 0 10px;border:2px solid #fd79a8}
+    .loading-fill{height:100%;width:0%;background:linear-gradient(90deg,#fd79a8,#a29bfe,#74b9ff);border-radius:20px;transition:width .3s}
+    .photo-frame{background:#fff;padding:12px;border-radius:16px;box-shadow:0 12px 30px rgba(0,0,0,.15);z-index:5;transform:rotate(-2deg);margin:16px 0;border:4px solid #fd79a8}
+    .photo-frame img{width:190px;height:190px;object-fit:cover;border-radius:10px;display:block}
+    .photo-frame .caption{text-align:center;font-size:14px;color:#e84393;margin-top:8px;font-weight:700}
+    .confetti-piece{position:absolute;width:10px;height:16px;top:-20px;z-index:50;animation:fall linear forwards}
+    @keyframes fall{to{transform:translateY(100vh) rotate(720deg);opacity:0}}
+    .error-shake{animation:shake .4s}
+    @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
   </style>
 </head>
 <body>
   <div class="phone-frame">
-    <div class="screen active" id="screen-passcode">
-      <div class="stars" id="stars1"></div>
-      <div class="snoopy-frame floating">
-        <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=80" alt="Cute dog">
-      </div>
-      <h2 style="margin-top:15px;">Enter a passcode</h2>
-      <div class="passcode-display" id="passcode-dots">
-        <div class="passcode-dot"></div><div class="passcode-dot"></div><div class="passcode-dot"></div><div class="passcode-dot"></div>
-      </div>
-      <div class="keypad" id="keypad">
-        <div class="key" data-num="1">1</div><div class="key" data-num="2">2</div><div class="key" data-num="3">3</div>
-        <div class="key" data-num="4">4</div><div class="key" data-num="5">5</div><div class="key" data-num="6">6</div>
-        <div class="key" data-num="7">7</div><div class="key" data-num="8">8</div><div class="key" data-num="9">9</div>
-        <div class="key" data-num="*">*</div><div class="key" data-num="0">0</div><div class="key" data-num="#">#</div>
-      </div>
-      <p class="small-note">Hint: try 1225 or any 4 digits 😉</p>
+    <div class="screen active" id="s-pass">
+      <div class="doodles" id="d1"></div>
+      <div style="font-size:42px;z-index:5">🐶💛</div>
+      <div class="cute-circle"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=80" alt="cute dog"></div>
+      <h2 class="title-text" style="font-size:26px">Enter Passcode</h2>
+      <div class="pass-dots" id="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+      <div class="keypad" id="keys"></div>
+      <p class="subtitle" style="margin-top:14px;font-size:13px">Hint: the year she was born 😉</p>
     </div>
-    <div class="screen" id="screen-wanna">
-      <div class="stars" id="stars2"></div>
-      <h2 class="title-text">Hey!</h2>
-      <p class="subtitle" style="font-size:18px; max-width:300px;">I made something for you<br>do you wanna see it?</p>
-      <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&q=80" class="cute-img floating" alt="Golden retriever">
-      <div class="btn-group">
-        <button class="btn" onclick="goTo('screen-goodboy')">Yes</button>
-        <button class="btn secondary" onclick="goTo('screen-no')">No</button>
+    <div class="screen" id="s-wanna">
+      <div class="doodles" id="d2"></div>
+      <div class="title-text">Hey cutie!</div>
+      <p class="subtitle">I made something special for you<br>do you wanna see it? 🥺</p>
+      <div class="cute-circle"><img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&q=80" alt="golden"></div>
+      <div style="z-index:5;display:flex;gap:12px;margin-top:10px">
+        <button class="btn" onclick="go('s-good')">Yes 💛</button>
+        <button class="btn pink" onclick="go('s-no')">No 😤</button>
       </div>
     </div>
-    <div class="screen" id="screen-no">
-      <div class="stars" id="stars3"></div>
-      <h2 style="color:#e84393; font-size:26px;">SERIOUSLY!?</h2>
-      <p class="subtitle" style="font-size:18px;">how dare you hmph 😤</p>
-      <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400&q=80" class="cute-img floating" alt="Angry cute dog" style="border-color:#fd79a8;">
-      <button class="btn" onclick="goTo('screen-wanna')">Go back</button>
+    <div class="screen" id="s-no">
+      <div class="doodles" id="d3"></div>
+      <div style="font-size:50px;z-index:5">😤🐶</div>
+      <h2 class="title-text" style="color:#e84393;font-size:28px">SERIOUSLY!?</h2>
+      <p class="subtitle" style="font-size:18px">how dare you hmph 😤</p>
+      <div class="cute-circle" style="border-color:#fd79a8"><img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400&q=80" alt="angry dog"></div>
+      <button class="btn" onclick="go('s-wanna')">Go back 💕</button>
     </div>
-    <div class="screen" id="screen-goodboy">
-      <div class="stars" id="stars4"></div>
-      <div style="position:relative; z-index:2;">
-        <div style="width:220px;height:220px;background:#fd79a8;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto;">
-          <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=400&q=80" class="cute-img" style="width:180px;height:180px;margin:0;border:none;" alt="Corgi">
-        </div>
-      </div>
-      <h2 class="big-text" style="margin-top:20px;">That's a good boy 🌻</h2>
-      <button class="btn" style="margin-top:25px;" onclick="goTo('screen-happy')">Click</button>
+    <div class="screen" id="s-good">
+      <div class="doodles" id="d4"></div>
+      <div class="heart-frame"><img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=400&q=80" alt="corgi"></div>
+      <h2 class="big-text">That's a good girl 🌻</h2>
+      <p class="subtitle">You always say yes to surprises</p>
+      <button class="btn" onclick="go('s-bday')">Click me ✨</button>
     </div>
-    <div class="screen" id="screen-happy">
-      <div class="stars" id="stars5"></div>
-      <div class="title-text" style="font-size:40px; line-height:1.1;">Happy<br>Birthday!</div>
-      <div class="photo-frame">
-        <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=80" alt="Your photo here" id="main-photo">
-        <div class="caption">You ✨</div>
-      </div>
-      <p class="subtitle">I prepared some surprises for you...</p>
-      <button class="btn" onclick="goTo('screen-items')">Open gifts</button>
+    <div class="screen" id="s-bday">
+      <div class="doodles" id="d5"></div>
+      <div class="title-text" style="font-size:38px;line-height:1.1">Happy<br>Birthday!</div>
+      <div class="photo-frame"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=80" id="mainPhoto" alt="main photo"><div class="caption">You ✨</div></div>
+      <p class="subtitle">I prepared some little surprises...</p>
+      <button class="btn" onclick="go('s-items')">Open gifts 🎁</button>
     </div>
-    <div class="screen" id="screen-items">
-      <div class="stars" id="stars6"></div>
-      <h2 class="title-text" style="font-size:26px;">click on each item to open</h2>
+    <div class="screen" id="s-items">
+      <div class="doodles" id="d6"></div>
+      <div class="title-text" style="font-size:24px">click each one to open</div>
       <div class="items-row">
-        <div class="item" onclick="goTo('screen-memories')">📷<span>Photos</span></div>
-        <div class="item" onclick="goTo('screen-letter')">💌<span>Letter</span></div>
-        <div class="item" onclick="goTo('screen-song')">🎵<span>Song</span></div>
+        <div class="item" onclick="go('s-memo')">📷<span>Photos</span></div>
+        <div class="item" onclick="go('s-letter')">💌<span>Letter</span></div>
+        <div class="item" onclick="go('s-song')">🎵<span>Song</span></div>
       </div>
-      <button class="btn secondary" style="margin-top:20px;" onclick="goTo('screen-finalmsg')">Next →</button>
+      <button class="btn pink" onclick="go('s-finalmsg')">Next →</button>
     </div>
-    <div class="screen" id="screen-memories">
-      <div class="stars" id="stars7"></div>
-      <h2 class="title-text" style="font-size:36px;">Memories</h2>
-      <p class="subtitle">Moments of us 💖</p>
+    <div class="screen" id="s-memo">
+      <div class="doodles" id="d7"></div>
+      <div class="title-text" style="font-size:32px">Memories</div>
+      <p class="subtitle">moments of us 💖</p>
       <div class="memories-grid">
-        <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&q=80" alt="Memory 1">
-        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=400&q=80" alt="Memory 2">
-        <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400&q=80" alt="Memory 3">
-        <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=80" alt="Memory 4">
-        <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&q=80" alt="Memory 5">
-        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=400&q=80" alt="Memory 6">
+        <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=300&q=80">
+        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=300&q=80">
+        <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=300&q=80">
+        <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=300&q=80">
+        <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=300&q=80">
+        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=300&q=80">
       </div>
-      <button class="btn" onclick="goTo('screen-items')">Back</button>
+      <button class="btn" onclick="go('s-items')">Back</button>
     </div>
-    <div class="screen" id="screen-letter">
-      <div class="stars" id="stars8"></div>
+    <div class="screen" id="s-letter">
+      <div class="doodles" id="d8"></div>
       <div class="letter-box">
-        <h3>Happy Birthday, Bestie! 💖</h3>
-        <p>I honestly don't know how to put into words how grateful I am to have you in my life. Thank you for being my biggest supporter, my partner in crime, and the person I can always count on.</p>
-        <p>Through all the laughs, random conversations, inside jokes, and even the tough days, you've made life so much better just by being a part of it.</p>
-        <p>I hope this year brings you everything you've been wishing for — happiness, success, peace, and endless reasons to smile.</p>
-        <p style="margin-top:15px; font-weight:700; color:#6c5ce7;">I love you so much! 💕🐾</p>
+        <h3>Happy Birthday, my friend 💖</h3>
+        <p>I don’t even know where to start… You’ve been one of the most special people in my life. The way you laugh, the way you care, the way you always show up — it means more than you’ll ever know.</p>
+        <p>Through every random conversation, every inside joke, every quiet moment and every crazy one, you’ve made ordinary days feel warmer. Thank you for being my safe place and my partner in crime.</p>
+        <p>This year I hope life gives you everything soft and beautiful that you’ve been waiting for. You deserve the purest happiness.</p>
+        <p style="text-align:center;font-weight:800;color:#e84393;margin-top:14px">I love you so much 💕🐾</p>
       </div>
-      <button class="btn" style="margin-top:20px;" onclick="goTo('screen-items')">Back</button>
+      <button class="btn" style="margin-top:16px" onclick="go('s-items')">Back</button>
     </div>
-    <div class="screen" id="screen-song">
-      <div class="stars" id="stars9"></div>
-      <h2 class="title-text" style="font-size:24px;">A song for you 🎵</h2>
+    <div class="screen" id="s-song">
+      <div class="doodles" id="d9"></div>
+      <div class="title-text" style="font-size:24px">A song for you 🎵</div>
       <p class="subtitle">O Haareya Main Dil Haareya</p>
-      <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/JpSFL_bHtBA?autoplay=0&rel=0" title="Haareya Lyrical" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="video-box"><iframe id="ytplayer" src="https://www.youtube.com/embed/JpSFL_bHtBA?enablejsapi=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
+      <p class="subtitle" style="font-size:13px;margin-top:10px">Arijit Singh • Meri Pyaari Bindu</p>
+      <button class="btn" onclick="go('s-items')">Back</button>
+    </div>
+    <div class="screen" id="s-finalmsg">
+      <div class="doodles" id="d10"></div>
+      <div style="font-size:48px;z-index:5">🐶✨</div>
+      <h2 class="big-text" style="max-width:320px;font-size:22px">May all the good things you’ve been waiting for finally find you this year ✨</h2>
+      <button class="btn" style="margin-top:22px" onclick="go('s-hug')">Continue 💕</button>
+    </div>
+    <div class="screen" id="s-hug">
+      <div class="doodles" id="d11"></div>
+      <div style="font-size:70px;z-index:5;animation:floaty 2s infinite">🐻🤗🐻</div>
+      <div class="title-text" style="font-size:26px">Virtual hug loading...</div>
+      <div class="loading-bar"><div class="loading-fill" id="hugBar"></div></div>
+      <p class="subtitle" id="hugText">Sending all my love...</p>
+      <button class="btn" id="hugBtn" style="display:none" onclick="startConfettiThenEnd()">Receive hug 💕</button>
+    </div>
+    <div class="screen" id="s-end">
+      <div class="doodles" id="d12"></div>
+      <div style="font-size:56px;z-index:5">🎂🎉💖</div>
+      <div class="title-text" style="font-size:34px">Happy Birthday!</div>
+      <div class="letter-box" style="margin-top:10px;max-height:280px;overflow-y:auto">
+        <p style="font-size:15px;line-height:1.6">My dearest friend,<br><br>On your special day I just want you to know how deeply grateful I am to have you in my life. You bring light into the room without even trying. Your kindness, your chaos, your quiet strength — everything about you makes the world softer.<br><br>Thank you for the late-night talks, the silly laughs, the times you believed in me when I didn’t, and for simply existing as you. I hope this year wraps you in the softest love, the biggest wins, and moments that make your heart feel full.<br><br>You are loved more than words can hold.<br><br>Forever your person 🫶</p>
       </div>
-      <p class="small-note" style="margin-top:12px;">Arijit Singh • Meri Pyaari Bindu</p>
-      <button class="btn" style="margin-top:20px;" onclick="goTo('screen-items')">Back</button>
-    </div>
-    <div class="screen" id="screen-finalmsg">
-      <div class="stars" id="stars10"></div>
-      <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=80" class="cute-img floating" alt="Puppy">
-      <h2 class="big-text" style="max-width:320px; font-size:24px;">May all the good things you've been waiting for finally find you this year ✨</h2>
-      <button class="btn" style="margin-top:25px;" onclick="goTo('screen-hug')">Continue</button>
-    </div>
-    <div class="screen" id="screen-hug">
-      <div class="stars" id="stars11"></div>
-      <div style="font-size:80px; z-index:2;" class="floating">🐻🤗🐻</div>
-      <h2 class="title-text" style="font-size:28px; margin-top:10px;">Virtual hug loading...</h2>
-      <div class="loading-bar"><div class="loading-progress" id="hug-progress"></div></div>
-      <p class="subtitle" id="hug-text" style="margin-top:20px;">Sending all my love...</p>
-      <button class="btn" id="hug-btn" style="display:none; margin-top:20px;" onclick="goTo('screen-end')">Receive hug 💕</button>
-    </div>
-    <div class="screen" id="screen-end">
-      <div class="stars" id="stars12"></div>
-      <div style="font-size:60px; z-index:2;">🎂🎉💖</div>
-      <h2 class="title-text" style="font-size:36px;">Happy Birthday!</h2>
-      <p class="subtitle" style="max-width:300px; font-size:17px;">You make the world brighter just by being in it.<br><br>Forever grateful for you. 🫶</p>
-      <div class="btn-group" style="margin-top:20px;"><button class="btn" onclick="goTo('screen-passcode')">Replay</button></div>
-      <p class="small-note">Made with love 💌</p>
+      <button class="btn" style="margin-top:14px" onclick="go('s-pass')">Replay 🔄</button>
     </div>
   </div>
   <script>
-    function createStars(containerId, count = 25) {
-      const container = document.getElementById(containerId);
-      if (!container) return;
-      for (let i = 0; i < count; i++) {
-        const star = document.createElement('div');
-        star.className = 'star';
-        star.innerHTML = '★';
-        star.style.left = Math.random() * 100 + '%';
-        star.style.top = Math.random() * 100 + '%';
-        star.style.fontSize = (8 + Math.random() * 12) + 'px';
-        star.style.animationDelay = Math.random() * 2 + 's';
-        star.style.color = ['#a29bfe', '#fd79a8', '#74b9ff', '#ffeaa7'][Math.floor(Math.random()*4)];
-        container.appendChild(star);
-      }
-    }
-    for (let i = 1; i <= 12; i++) createStars('stars' + i);
-    let passcode = '';
-    const dots = document.querySelectorAll('.passcode-dot');
-    document.querySelectorAll('.key').forEach(key => {
-      key.addEventListener('click', () => {
-        const num = key.dataset.num;
-        if (num === '*' || num === '#') return;
-        if (passcode.length < 4) {
-          passcode += num;
-          dots[passcode.length - 1].classList.add('filled');
-        }
-        if (passcode.length === 4) {
-          setTimeout(() => { goTo('screen-wanna'); passcode = ''; dots.forEach(d => d.classList.remove('filled')); }, 400);
-        }
-      });
-    });
-    function goTo(screenId) {
-      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-      const target = document.getElementById(screenId);
-      if (target) {
-        target.classList.add('active');
-        if (screenId === 'screen-hug') startHugLoading();
-      }
-    }
-    function startHugLoading() {
-      const progress = document.getElementById('hug-progress');
-      const text = document.getElementById('hug-text');
-      const btn = document.getElementById('hug-btn');
-      progress.style.width = '0%';
-      btn.style.display = 'none';
-      let width = 0;
-      const messages = ['Sending all my love...', 'Wrapping you in warmth...', 'Almost there...', 'Hug ready! 🤗'];
-      const interval = setInterval(() => {
-        width += 2;
-        progress.style.width = width + '%';
-        if (width === 30) text.textContent = messages[1];
-        if (width === 60) text.textContent = messages[2];
-        if (width === 90) text.textContent = messages[3];
-        if (width >= 100) { clearInterval(interval); btn.style.display = 'inline-block'; }
-      }, 40);
-    }
+    const doodleEmojis=['⭐','✨','💛','💖','🌸','🎀','🐶','🐻','🍀','💫','🥰','🎈','🧁','🌙','🦋'];
+    function fillDoodles(id){const el=document.getElementById(id);if(!el)return;el.innerHTML='';for(let i=0;i<28;i++){const d=document.createElement('div');d.className='doodle';d.textContent=doodleEmojis[Math.floor(Math.random()*doodleEmojis.length)];d.style.left=Math.random()*100+'%';d.style.top=Math.random()*100+'%';d.style.fontSize=(14+Math.random()*16)+'px';d.style.animationDelay=(Math.random()*3)+'s';d.style.opacity=.7+Math.random()*.3;el.appendChild(d)}}
+    for(let i=1;i<=12;i++)fillDoodles('d'+i);
+    let code='';const correct='2002';const dots=document.querySelectorAll('.dot');const keysEl=document.getElementById('keys');
+    ['1','2','3','4','5','6','7','8','9','','0','⌫'].forEach(k=>{const b=document.createElement('div');b.className='key';b.textContent=k||' ';if(k==='⌫')b.style.fontSize='20px';b.onclick=()=>{if(k==='⌫'){if(code.length){code=code.slice(0,-1);dots[code.length].classList.remove('filled')}return}if(!k||code.length>=4)return;code+=k;dots[code.length-1].classList.add('filled');if(code.length===4){setTimeout(()=>{if(code===correct){go('s-wanna')}else{document.getElementById('s-pass').classList.add('error-shake');setTimeout(()=>document.getElementById('s-pass').classList.remove('error-shake'),400)}code='';dots.forEach(d=>d.classList.remove('filled'))},350)}};keysEl.appendChild(b)});
+    function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');if(id==='s-hug')startHug();if(id==='s-song'){document.getElementById('ytplayer').src='https://www.youtube.com/embed/JpSFL_bHtBA?autoplay=1&rel=0'}}
+    function startHug(){const bar=document.getElementById('hugBar');const txt=document.getElementById('hugText');const btn=document.getElementById('hugBtn');bar.style.width='0%';btn.style.display='none';let w=0;const msgs=['Sending all my love...','Wrapping you tight...','Almost there...','Hug ready!! 🤗'];const t=setInterval(()=>{w+=1.8;bar.style.width=w+'%';if(w>25)txt.textContent=msgs[1];if(w>55)txt.textContent=msgs[2];if(w>85)txt.textContent=msgs[3];if(w>=100){clearInterval(t);btn.style.display='inline-block'}},30)}
+    function startConfettiThenEnd(){const colors=['#fd79a8','#a29bfe','#74b9ff','#ffeaa7','#55efc4','#ff7675','#fdcb6e'];for(let i=0;i<80;i++){const p=document.createElement('div');p.className='confetti-piece';p.style.left=Math.random()*100+'%';p.style.background=colors[Math.floor(Math.random()*colors.length)];p.style.animationDuration=(2+Math.random()*2.5)+'s';p.style.animationDelay=(Math.random()*.6)+'s';p.style.width=(8+Math.random()*8)+'px';p.style.height=(10+Math.random()*12)+'px';p.style.borderRadius=Math.random()>.5?'50%':'2px';document.querySelector('.phone-frame').appendChild(p);setTimeout(()=>p.remove(),5000)}setTimeout(()=>go('s-end'),900)}
   </script>
 </body>
 </html>
