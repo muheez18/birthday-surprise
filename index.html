@@ -12,10 +12,10 @@ body{font-family:'Nunito',sans-serif;background:#1a1a2e;min-height:100vh;display
 .screen{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;padding:20px 16px;background:repeating-linear-gradient(90deg,#fff9e6 0px,#fff9e6 22px,#ffeaa7 22px,#ffeaa7 44px);overflow-y:auto;text-align:center}
 .screen.active{display:flex}
 .stars{position:absolute;inset:0;pointer-events:none;z-index:1}
-.star{position:absolute;font-size:14px;color:#a29bfe;animation:twinkle 2.2s infinite alternate}
-@keyframes twinkle{from{opacity:.35;transform:scale(.8)}to{opacity:1;transform:scale(1.15)}}
-.scallop{width:210px;height:210px;background:#c9b1ff;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;z-index:5;box-shadow:0 8px 25px rgba(162,155,254,.35)}
-.scallop-inner{width:175px;height:175px;border-radius:50%;background:#fff;overflow:hidden;display:flex;align-items:center;justify-content:center;border:6px solid #fff}
+.star{position:absolute;font-size:16px;animation:twinkle 2.2s infinite alternate}
+@keyframes twinkle{from{opacity:.4;transform:scale(.8)}to{opacity:1;transform:scale(1.2)}}
+.scallop{width:200px;height:200px;background:#c9b1ff;border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;z-index:5;box-shadow:0 8px 25px rgba(162,155,254,.4);border:8px solid #b39ddb}
+.scallop-inner{width:160px;height:160px;border-radius:50%;background:#fff;overflow:hidden;display:flex;align-items:center;justify-content:center}
 .scallop-inner img{width:100%;height:100%;object-fit:cover}
 .title{font-family:'Pacifico',cursive;color:#6c5ce7;font-size:28px;z-index:5;margin:12px 0 6px;text-shadow:1px 1px 0 #fff}
 .sub{color:#636e72;font-size:16px;z-index:5;margin-bottom:14px;line-height:1.4}
@@ -29,19 +29,18 @@ body{font-family:'Nunito',sans-serif;background:#1a1a2e;min-height:100vh;display
 .keypad{display:grid;grid-template-columns:repeat(3,68px);gap:11px;z-index:5}
 .key{width:68px;height:68px;border-radius:50%;background:#fff;border:2px solid #e0d4ff;font-size:24px;font-weight:800;color:#6c5ce7;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 0 #d4c8f0}
 .key:active{transform:translateY(2px);box-shadow:0 2px 0 #d4c8f0}
-.heart-bg{width:200px;height:200px;background:#fd79a8;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:5;box-shadow:0 10px 28px rgba(253,121,168,.4)}
-.heart-bg img{width:155px;height:155px;border-radius:50%;object-fit:cover;border:5px solid #fff}
-.items{display:flex;gap:22px;justify-content:center;z-index:5;margin:26px 0}
-.item{width:90px;height:90px;background:#fff;border-radius:22px;border:3px solid #a29bfe;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 7px 0 #d4c8f0;font-size:34px}
+.heart-bg{width:190px;height:190px;background:#fd79a8;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:5;box-shadow:0 10px 28px rgba(253,121,168,.4);font-size:100px}
+.items{display:flex;gap:20px;justify-content:center;z-index:5;margin:26px 0}
+.item{width:88px;height:88px;background:#fff;border-radius:22px;border:3px solid #a29bfe;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 7px 0 #d4c8f0;font-size:36px}
 .item:active{transform:translateY(3px);box-shadow:0 4px 0 #d4c8f0}
-.item span{font-size:11px;margin-top:3px;color:#6c5ce7;font-weight:800}
+.item span{font-size:11px;margin-top:2px;color:#6c5ce7;font-weight:800}
 .letter{background:#fffef7;border:2.5px dashed #a29bfe;border-radius:18px;padding:20px;max-width:340px;z-index:5;text-align:left;box-shadow:0 8px 22px rgba(0,0,0,.07)}
 .letter h3{color:#6c5ce7;font-size:20px;margin-bottom:12px;text-align:center;font-family:'Pacifico',cursive}
 .letter p{color:#2d3436;font-size:14.5px;line-height:1.6;margin-bottom:10px}
 .memo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;max-width:340px;z-index:5;margin:12px 0}
-.memo-grid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;border:3px solid #fff;box-shadow:0 3px 10px rgba(0,0,0,.1)}
+.memo-grid .cell{width:100%;aspect-ratio:1;border-radius:12px;border:3px solid #fff;box-shadow:0 3px 10px rgba(0,0,0,.1);display:flex;align-items:center;justify-content:center;font-size:42px;background:#fff}
 .photo-box{background:#fff;padding:10px;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,.12);z-index:5;transform:rotate(-2deg);margin:14px 0;border:4px solid #fd79a8}
-.photo-box img{width:180px;height:180px;object-fit:cover;border-radius:8px;display:block}
+.photo-box .inner{width:170px;height:170px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:90px;background:#fff8e7}
 .photo-box .cap{text-align:center;font-size:13px;color:#e84393;margin-top:6px;font-weight:700}
 .vid{width:100%;max-width:340px;aspect-ratio:16/9;border-radius:16px;overflow:hidden;z-index:5;box-shadow:0 10px 28px rgba(0,0,0,.18);background:#000}
 .vid iframe{width:100%;height:100%;border:none}
@@ -58,7 +57,7 @@ body{font-family:'Nunito',sans-serif;background:#1a1a2e;min-height:100vh;display
 <div class="phone">
 <div class="screen active" id="p">
   <div class="stars" id="st1"></div>
-  <div class="scallop"><div class="scallop-inner"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=80" alt="dog"></div></div>
+  <div class="scallop"><div class="scallop-inner"><div style="font-size:90px">🐶</div></div></div>
   <div class="title" style="font-size:24px;margin-top:18px">Enter a passcode</div>
   <div class="dots" id="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
   <div class="keypad" id="keys"></div>
@@ -68,7 +67,7 @@ body{font-family:'Nunito',sans-serif;background:#1a1a2e;min-height:100vh;display
   <div class="stars" id="st2"></div>
   <div class="title">Hey!</div>
   <p class="sub">I made something for you<br>do you wanna see it?</p>
-  <div class="scallop" style="background:#fdcb6e"><div class="scallop-inner"><img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=400&q=80" alt="golden"></div></div>
+  <div class="scallop" style="background:#fdcb6e;border-color:#f0b429"><div class="scallop-inner"><div style="font-size:90px">🐕</div></div></div>
   <div style="display:flex;gap:14px;margin-top:18px;z-index:5">
     <button class="btn" onclick="go('good')">Yes</button>
     <button class="btn pink" onclick="go('no')">No</button>
@@ -78,19 +77,19 @@ body{font-family:'Nunito',sans-serif;background:#1a1a2e;min-height:100vh;display
   <div class="stars" id="st3"></div>
   <div class="title" style="color:#e84393;font-size:26px">SERIOUSLY!?</div>
   <p class="sub" style="font-size:18px">how dare you hmph 😤</p>
-  <div class="scallop" style="background:#fd79a8"><div class="scallop-inner"><img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400&q=80" alt="angry"></div></div>
+  <div class="scallop" style="background:#fd79a8;border-color:#e84393"><div class="scallop-inner"><div style="font-size:90px">🐩</div></div></div>
   <button class="btn" style="margin-top:18px" onclick="go('hey')">Go back</button>
 </div>
 <div class="screen" id="good">
   <div class="stars" id="st4"></div>
-  <div class="heart-bg"><img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=400&q=80" alt="corgi"></div>
+  <div class="heart-bg">🐶</div>
   <div class="title" style="font-size:26px;margin-top:16px">That's a good boy 🌻</div>
   <button class="btn" style="margin-top:20px" onclick="go('bday')">Click</button>
 </div>
 <div class="screen" id="bday">
   <div class="stars" id="st5"></div>
   <div class="title" style="font-size:36px;line-height:1.1">Happy<br>Birthday!</div>
-  <div class="photo-box"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=80" id="mainPic" alt="photo"><div class="cap">You ✨</div></div>
+  <div class="photo-box"><div class="inner" id="mainPic">🎂</div><div class="cap">You ✨</div></div>
   <p class="sub">I prepared some surprises for you...</p>
   <button class="btn" onclick="go('items')">Open gifts</button>
 </div>
@@ -109,12 +108,8 @@ body{font-family:'Nunito',sans-serif;background:#1a1a2e;min-height:100vh;display
   <div class="title" style="font-size:32px">Memories</div>
   <p class="sub">Moments of us 💖</p>
   <div class="memo-grid">
-    <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=300&q=80">
-    <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=300&q=80">
-    <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=300&q=80">
-    <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=300&q=80">
-    <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=300&q=80">
-    <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=300&q=80">
+    <div class="cell">🐶</div><div class="cell">🐕</div><div class="cell">🐩</div>
+    <div class="cell">🦮</div><div class="cell">🐕‍🦺</div><div class="cell">🐾</div>
   </div>
   <button class="btn" onclick="go('items')">Back</button>
 </div>
@@ -139,13 +134,13 @@ body{font-family:'Nunito',sans-serif;background:#1a1a2e;min-height:100vh;display
 </div>
 <div class="screen" id="final">
   <div class="stars" id="st10"></div>
-  <div style="font-size:48px;z-index:5">🐶</div>
+  <div style="font-size:70px;z-index:5">🐶</div>
   <div class="big">May all the good things you've been waiting for finally find you this year ✨</div>
   <button class="btn" style="margin-top:22px" onclick="go('hug')">Continue</button>
 </div>
 <div class="screen" id="hug">
   <div class="stars" id="st11"></div>
-  <div style="font-size:72px;z-index:5">🐻🤗🐻</div>
+  <div style="font-size:80px;z-index:5">🐻🤗🐻</div>
   <div class="title" style="font-size:24px">Virtual hug loading...</div>
   <div class="load-bar"><div class="load-fill" id="bar"></div></div>
   <p class="sub" id="hugTxt">Sending all my love...</p>
@@ -162,8 +157,8 @@ body{font-family:'Nunito',sans-serif;background:#1a1a2e;min-height:100vh;display
 </div>
 </div>
 <script>
-const emojis=['⭐','✨','💛','💖','🌸','🎀','🐶','🐻','🍀','💫','🥰','🎈','🌙','🦋','⭐'];
-function stars(id){const el=document.getElementById(id);if(!el)return;for(let i=0;i<22;i++){const s=document.createElement('div');s.className='star';s.textContent=emojis[Math.floor(Math.random()*emojis.length)];s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.fontSize=(12+Math.random()*14)+'px';s.style.animationDelay=Math.random()*2+'s';s.style.color=['#a29bfe','#fd79a8','#74b9ff','#ffeaa7','#55efc4'][Math.floor(Math.random()*5)];el.appendChild(s)}}
+const emojis=['⭐','✨','💛','💖','🌸','🎀','🐶','🐻','🍀','💫','🥰','🎈','🌙','🦋','⭐','🧸','🧁'];
+function stars(id){const el=document.getElementById(id);if(!el)return;for(let i=0;i<24;i++){const s=document.createElement('div');s.className='star';s.textContent=emojis[Math.floor(Math.random()*emojis.length)];s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.fontSize=(13+Math.random()*14)+'px';s.style.animationDelay=Math.random()*2+'s';s.style.color=['#a29bfe','#fd79a8','#74b9ff','#ffeaa7','#55efc4'][Math.floor(Math.random()*5)];el.appendChild(s)}}
 for(let i=1;i<=12;i++)stars('st'+i);
 let code='';const ok='2002';const dots=document.querySelectorAll('.dot');const keys=document.getElementById('keys');
 ['1','2','3','4','5','6','7','8','9','','0','⌫'].forEach(k=>{const b=document.createElement('div');b.className='key';b.textContent=k||' ';if(k==='⌫')b.style.fontSize='18px';b.onclick=()=>{if(k==='⌫'){if(code.length){code=code.slice(0,-1);dots[code.length].classList.remove('on')}return}if(!k||code.length>=4)return;code+=k;dots[code.length-1].classList.add('on');if(code.length===4){setTimeout(()=>{if(code===ok)go('hey');else{document.getElementById('p').classList.add('shake');setTimeout(()=>document.getElementById('p').classList.remove('shake'),350)}code='';dots.forEach(d=>d.classList.remove('on'))},300)}};keys.appendChild(b)});
