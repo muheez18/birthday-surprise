@@ -24,8 +24,9 @@ body{font-family:'Nunito',sans-serif;background:#1a1a2e;min-height:100vh;display
 .key:active{transform:translateY(3px);box-shadow:0 2px 0 #c9b8f0}
 .hint{margin-top:14px;font-size:14px;color:#888}
 .other{padding:18px;text-align:center}
-.scallop{width:170px;height:170px;background:#c9b1ff;border-radius:50%;display:flex;align-items:center;justify-content:center;border:8px solid #b39ddb;margin:10px auto;font-size:75px}
-.btn{background:#a29bfe;color:#fff;border:none;padding:13px 34px;border-radius:50px;font-size:17px;font-weight:700;cursor:pointer;box-shadow:0 6px 0 #7c6fd6;margin:8px;font-family:'Nunito',sans-serif}
+.scallop{width:200px;height:200px;background:#c9b1ff;border-radius:50%;display:flex;align-items:center;justify-content:center;border:8px solid #b39ddb;margin:12px auto;overflow:hidden}
+.scallop img{width:100%;height:100%;object-fit:cover}
+.btn{background:#a29bfe;color:#fff;border:none;padding:14px 38px;border-radius:50px;font-size:19px;font-weight:700;cursor:pointer;box-shadow:0 6px 0 #7c6fd6;margin:8px;font-family:'Nunito',sans-serif}
 .btn:active{transform:translateY(3px);box-shadow:0 3px 0 #7c6fd6}
 .btn.pink{background:#fd79a8;box-shadow:0 6px 0 #e15b8d}
 .sub{color:#636e72;font-size:16px;margin:10px 0}
@@ -48,6 +49,8 @@ body{font-family:'Nunito',sans-serif;background:#1a1a2e;min-height:100vh;display
 @keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
 .shake{animation:shake .35s}
 @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.hey-title{font-family:'Pacifico',cursive;color:#7c6fd6;font-size:36px;line-height:1.25;margin-bottom:8px;text-shadow:1px 1px 0 #fff;z-index:5}
+.hey-sub{font-size:20px;color:#6c5ce7;font-weight:700;margin-bottom:10px;z-index:5}
 </style>
 </head>
 <body>
@@ -66,10 +69,12 @@ body{font-family:'Nunito',sans-serif;background:#1a1a2e;min-height:100vh;display
 </div>
 <div class="screen other" id="hey">
   <div class="stars" id="st2"></div>
-  <div class="title" style="font-size:34px">Hey!</div>
-  <p class="sub">I made something for you<br>do you wanna see it?</p>
-  <div class="scallop" style="background:#fdcb6e;border-color:#f0b429">🐕</div>
-  <div style="display:flex;gap:14px;margin-top:16px">
+  <div class="hey-title">Hey! I made something for you</div>
+  <div class="hey-sub">do you wanna see it?</div>
+  <div class="scallop" style="background:#fdcb6e;border-color:#f0b429">
+    <img src="https://raw.githubusercontent.com/muheez18/birthday-surprise/main/298bf90815c243b41731f18a5adbb4f3.jpg" alt="Golden">
+  </div>
+  <div style="display:flex;gap:16px;margin-top:18px;z-index:5">
     <button class="btn" onclick="go('good')">Yes</button>
     <button class="btn pink" onclick="go('no')">No</button>
   </div>
@@ -78,7 +83,7 @@ body{font-family:'Nunito',sans-serif;background:#1a1a2e;min-height:100vh;display
   <div class="stars" id="st3"></div>
   <div class="title" style="color:#e84393;font-size:28px">SERIOUSLY!?</div>
   <p class="sub" style="font-size:19px">how dare you hmph 😤</p>
-  <div class="scallop" style="background:#fd79a8;border-color:#e84393">🐩</div>
+  <div class="scallop" style="background:#fd79a8;border-color:#e84393;font-size:80px">🐩</div>
   <button class="btn" style="margin-top:16px" onclick="go('hey')">Go back</button>
 </div>
 <div class="screen other" id="good">
