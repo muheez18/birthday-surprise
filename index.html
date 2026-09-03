@@ -24,35 +24,35 @@ body{font-family:'Nunito',sans-serif;background:#1a1a2e;min-height:100vh;display
 .key:active{transform:translateY(3px);box-shadow:0 2px 0 #c9b8f0}
 .hint{margin-top:14px;font-size:14px;color:#888}
 .other{padding:18px;text-align:center}
-.scallop{width:200px;height:200px;background:#c9b1ff;border-radius:50%;display:flex;align-items:center;justify-content:center;border:8px solid #b39ddb;margin:12px auto;overflow:hidden}
+.scallop{width:220px;height:220px;background:#c9b1ff;border-radius:50%;display:flex;align-items:center;justify-content:center;border:10px solid #b39ddb;margin:14px auto;overflow:hidden}
 .scallop img{width:100%;height:100%;object-fit:cover}
-.btn{background:#a29bfe;color:#fff;border:none;padding:14px 38px;border-radius:50px;font-size:19px;font-weight:700;cursor:pointer;box-shadow:0 6px 0 #7c6fd6;margin:8px;font-family:'Nunito',sans-serif}
-.btn:active{transform:translateY(3px);box-shadow:0 3px 0 #7c6fd6}
-.btn.pink{background:#fd79a8;box-shadow:0 6px 0 #e15b8d}
-.sub{color:#636e72;font-size:16px;margin:10px 0}
-.heart-frame{width:220px;height:220px;background:#fd79a8;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:12px auto;box-shadow:0 10px 25px rgba(253,121,168,.4);overflow:hidden;border:8px solid #fff}
+.btn{background:#a29bfe;color:#fff;border:none;padding:16px 42px;border-radius:50px;font-size:22px;font-weight:700;cursor:pointer;box-shadow:0 7px 0 #7c6fd6;margin:10px;font-family:'Nunito',sans-serif}
+.btn:active{transform:translateY(3px);box-shadow:0 4px 0 #7c6fd6}
+.btn.pink{background:#fd79a8;box-shadow:0 7px 0 #e15b8d}
+.sub{color:#636e72;font-size:18px;margin:12px 0}
+.heart-frame{width:260px;height:260px;background:#fd79a8;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:16px auto;box-shadow:0 12px 30px rgba(253,121,168,.45);overflow:hidden;border:10px solid #fff}
 .heart-frame img{width:100%;height:100%;object-fit:cover}
-.items{display:flex;gap:18px;justify-content:center;margin:18px 0}
-.item{width:85px;height:85px;background:#fff;border-radius:20px;border:3px solid #a29bfe;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:34px;box-shadow:0 6px 0 #d4c8f0;cursor:pointer}
-.item span{font-size:11px;margin-top:3px;color:#6c5ce7;font-weight:800}
-.letter{background:#fffef7;border:2.5px dashed #a29bfe;border-radius:16px;padding:16px;max-width:340px;text-align:left;margin:0 auto}
-.letter h3{color:#6c5ce7;font-size:19px;text-align:center;font-family:'Pacifico',cursive;margin-bottom:10px}
-.letter p{font-size:14px;line-height:1.55;margin-bottom:8px;color:#333}
-.vid{width:100%;max-width:340px;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;margin:10px auto}
+.items{display:flex;gap:20px;justify-content:center;margin:20px 0}
+.item{width:95px;height:95px;background:#fff;border-radius:22px;border:4px solid #a29bfe;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:40px;box-shadow:0 7px 0 #d4c8f0;cursor:pointer}
+.item span{font-size:13px;margin-top:4px;color:#6c5ce7;font-weight:800}
+.letter{background:#fffef7;border:3px dashed #a29bfe;border-radius:18px;padding:18px;max-width:360px;text-align:left;margin:0 auto}
+.letter h3{color:#6c5ce7;font-size:22px;text-align:center;font-family:'Pacifico',cursive;margin-bottom:12px}
+.letter p{font-size:15px;line-height:1.6;margin-bottom:10px;color:#333}
+.vid{width:100%;max-width:360px;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#000;margin:12px auto}
 .vid iframe{width:100%;height:100%;border:none}
-.load-bar{width:200px;height:12px;background:#f8d7e8;border-radius:20px;overflow:hidden;margin:14px auto;border:2px solid #fd79a8}
+.load-bar{width:220px;height:14px;background:#f8d7e8;border-radius:20px;overflow:hidden;margin:16px auto;border:3px solid #fd79a8}
 .load-fill{height:100%;width:0%;background:linear-gradient(90deg,#fd79a8,#a29bfe);border-radius:20px}
-.big{font-size:21px;font-weight:800;color:#6c5ce7;max-width:320px;line-height:1.35;margin:0 auto}
+.big{font-size:24px;font-weight:800;color:#6c5ce7;max-width:340px;line-height:1.35;margin:0 auto}
 .stars{position:absolute;inset:0;pointer-events:none;z-index:1}
-.star{position:absolute;font-size:15px;animation:twinkle 2s infinite alternate}
+.star{position:absolute;font-size:22px;animation:twinkle 2s infinite alternate}
 @keyframes twinkle{from{opacity:.4}to{opacity:1}}
-.confetti{position:absolute;width:9px;height:14px;top:-15px;z-index:50;animation:fall linear forwards}
+.confetti{position:absolute;width:11px;height:16px;top:-15px;z-index:50;animation:fall linear forwards}
 @keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
 .shake{animation:shake .35s}
 @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
-.hey-title{font-family:'Pacifico',cursive;color:#7c6fd6;font-size:36px;line-height:1.25;margin-bottom:8px;text-shadow:1px 1px 0 #fff;z-index:5}
-.hey-sub{font-size:20px;color:#6c5ce7;font-weight:700;margin-bottom:10px;z-index:5}
-.good-title{font-family:'Pacifico',cursive;color:#e84393;font-size:38px;margin:16px 0 8px;text-shadow:1px 1px 0 #fff;z-index:5}
+.hey-title{font-family:'Pacifico',cursive;color:#7c6fd6;font-size:42px;line-height:1.25;margin-bottom:10px;text-shadow:1px 1px 0 #fff;z-index:5}
+.hey-sub{font-size:24px;color:#6c5ce7;font-weight:700;margin-bottom:12px;z-index:5}
+.good-title{font-family:'Pacifico',cursive;color:#e84393;font-size:46px;margin:18px 0 10px;text-shadow:1px 1px 0 #fff;z-index:5}
 </style>
 </head>
 <body>
@@ -76,39 +76,39 @@ body{font-family:'Nunito',sans-serif;background:#1a1a2e;min-height:100vh;display
   <div class="scallop" style="background:#fdcb6e;border-color:#f0b429">
     <img src="https://raw.githubusercontent.com/muheez18/birthday-surprise/main/298bf90815c243b41731f18a5adbb4f3.jpg" alt="Golden">
   </div>
-  <div style="display:flex;gap:16px;margin-top:18px;z-index:5">
+  <div style="display:flex;gap:18px;margin-top:20px;z-index:5">
     <button class="btn" onclick="go('good')">Yes</button>
     <button class="btn pink" onclick="go('no')">No</button>
   </div>
 </div>
 <div class="screen other" id="no">
   <div class="stars" id="st3"></div>
-  <div class="title" style="color:#e84393;font-size:28px">SERIOUSLY!?</div>
-  <p class="sub" style="font-size:19px">how dare you hmph 😤</p>
-  <div class="scallop" style="background:#fd79a8;border-color:#e84393;font-size:80px">🐩</div>
-  <button class="btn" style="margin-top:16px" onclick="go('hey')">Go back</button>
+  <div class="title" style="color:#e84393;font-size:34px">SERIOUSLY!?</div>
+  <p class="sub" style="font-size:22px">how dare you hmph 😤</p>
+  <div class="scallop" style="background:#fd79a8;border-color:#e84393;font-size:90px">🐩</div>
+  <button class="btn" style="margin-top:18px" onclick="go('hey')">Go back</button>
 </div>
 <div class="screen other" id="good">
   <div class="stars" id="st4"></div>
   <div class="heart-frame">
-    <img src="https://raw.githubusercontent.com/muheez18/birthday-surprise/main/22fbe48b06f89821a036c865f112870e.jpg" alt="Corgi">
+    <img src="https://raw.githubusercontent.com/muheez18/birthday-surprise/main/22fbe48b06f89821a036c865f112870e.jpg?v=2" alt="Corgi">
   </div>
   <div class="good-title">That's a good boy 🌻</div>
-  <button class="btn" style="margin-top:14px" onclick="go('bday')">Click</button>
+  <button class="btn" style="margin-top:16px" onclick="go('bday')">Click</button>
 </div>
 <div class="screen other" id="bday">
   <div class="stars" id="st5"></div>
-  <div class="title" style="font-size:38px;line-height:1.1">Happy<br>Birthday!</div>
-  <div style="background:#fff;padding:12px;border-radius:16px;border:4px solid #fd79a8;margin:14px 0;box-shadow:0 10px 25px rgba(0,0,0,.12)">
-    <div style="width:170px;height:170px;font-size:90px;display:flex;align-items:center;justify-content:center;background:#fff8e7;border-radius:10px" id="mainPic">🎂</div>
-    <div style="text-align:center;font-size:14px;color:#e84393;margin-top:6px;font-weight:700">You ✨</div>
+  <div class="title" style="font-size:44px;line-height:1.1">Happy<br>Birthday!</div>
+  <div style="background:#fff;padding:14px;border-radius:18px;border:5px solid #fd79a8;margin:16px 0;box-shadow:0 12px 28px rgba(0,0,0,.12)">
+    <div style="width:190px;height:190px;font-size:100px;display:flex;align-items:center;justify-content:center;background:#fff8e7;border-radius:12px" id="mainPic">🎂</div>
+    <div style="text-align:center;font-size:16px;color:#e84393;margin-top:8px;font-weight:700">You ✨</div>
   </div>
   <p class="sub">I prepared some surprises for you...</p>
   <button class="btn" onclick="go('items')">Open gifts</button>
 </div>
 <div class="screen other" id="items">
   <div class="stars" id="st6"></div>
-  <div class="title" style="font-size:24px">click on each item to open</div>
+  <div class="title" style="font-size:28px">click on each item to open</div>
   <div class="items">
     <div class="item" onclick="go('memo')">📷<span>Photos</span></div>
     <div class="item" onclick="go('letter')">💌<span>Letter</span></div>
@@ -118,15 +118,15 @@ body{font-family:'Nunito',sans-serif;background:#1a1a2e;min-height:100vh;display
 </div>
 <div class="screen other" id="memo">
   <div class="stars" id="st7"></div>
-  <div class="title" style="font-size:34px">Memories</div>
+  <div class="title" style="font-size:40px">Memories</div>
   <p class="sub">Moments of us 💖</p>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:320px;margin:12px auto">
-    <div style="aspect-ratio:1;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:40px;border:3px solid #fff;box-shadow:0 3px 10px rgba(0,0,0,.1)">🐶</div>
-    <div style="aspect-ratio:1;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:40px;border:3px solid #fff;box-shadow:0 3px 10px rgba(0,0,0,.1)">🐕</div>
-    <div style="aspect-ratio:1;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:40px;border:3px solid #fff;box-shadow:0 3px 10px rgba(0,0,0,.1)">🐩</div>
-    <div style="aspect-ratio:1;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:40px;border:3px solid #fff;box-shadow:0 3px 10px rgba(0,0,0,.1)">🦮</div>
-    <div style="aspect-ratio:1;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:40px;border:3px solid #fff;box-shadow:0 3px 10px rgba(0,0,0,.1)">🐾</div>
-    <div style="aspect-ratio:1;background:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:40px;border:3px solid #fff;box-shadow:0 3px 10px rgba(0,0,0,.1)">💛</div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:340px;margin:14px auto">
+    <div style="aspect-ratio:1;background:#fff;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:48px;border:4px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.1)">🐶</div>
+    <div style="aspect-ratio:1;background:#fff;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:48px;border:4px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.1)">🐕</div>
+    <div style="aspect-ratio:1;background:#fff;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:48px;border:4px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.1)">🐩</div>
+    <div style="aspect-ratio:1;background:#fff;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:48px;border:4px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.1)">🦮</div>
+    <div style="aspect-ratio:1;background:#fff;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:48px;border:4px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.1)">🐾</div>
+    <div style="aspect-ratio:1;background:#fff;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:48px;border:4px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.1)">💛</div>
   </div>
   <button class="btn" onclick="go('items')">Back</button>
 </div>
@@ -137,51 +137,51 @@ body{font-family:'Nunito',sans-serif;background:#1a1a2e;min-height:100vh;display
     <p>I honestly don't know how to put into words how grateful I am to have you in my life. Thank you for being my biggest supporter, my partner in crime, and the person I can always count on.</p>
     <p>Through all the laughs, random conversations, inside jokes, and even the tough days, you've made life so much better just by being a part of it.</p>
     <p>I hope this year brings you everything you've been wishing for — happiness, success, peace, and endless reasons to smile.</p>
-    <p style="text-align:center;font-weight:800;color:#6c5ce7;margin-top:10px">I love you so much! 💕🐾</p>
+    <p style="text-align:center;font-weight:800;color:#6c5ce7;margin-top:12px">I love you so much! 💕🐾</p>
   </div>
-  <button class="btn" style="margin-top:14px" onclick="go('items')">Back</button>
+  <button class="btn" style="margin-top:16px" onclick="go('items')">Back</button>
 </div>
 <div class="screen other" id="song">
   <div class="stars" id="st9"></div>
-  <div class="title" style="font-size:24px">A song for you 🎵</div>
+  <div class="title" style="font-size:28px">A song for you 🎵</div>
   <p class="sub">O Haareya Main Dil Haareya</p>
   <div class="vid"><iframe id="yt" src="https://www.youtube.com/embed/JpSFL_bHtBA?rel=0" allow="autoplay;encrypted-media" allowfullscreen></iframe></div>
-  <p class="sub" style="font-size:13px">Arijit Singh • Meri Pyaari Bindu</p>
+  <p class="sub" style="font-size:15px">Arijit Singh • Meri Pyaari Bindu</p>
   <button class="btn" onclick="go('items')">Back</button>
 </div>
 <div class="screen other" id="final">
   <div class="stars" id="st10"></div>
-  <div style="font-size:70px">🐶</div>
+  <div style="font-size:80px">🐶</div>
   <div class="big">May all the good things you've been waiting for finally find you this year ✨</div>
-  <button class="btn" style="margin-top:20px" onclick="go('hug')">Continue</button>
+  <button class="btn" style="margin-top:22px" onclick="go('hug')">Continue</button>
 </div>
 <div class="screen other" id="hug">
   <div class="stars" id="st11"></div>
-  <div style="font-size:80px">🐻🤗🐻</div>
-  <div class="title" style="font-size:26px">Virtual hug loading...</div>
+  <div style="font-size:90px">🐻🤗🐻</div>
+  <div class="title" style="font-size:30px">Virtual hug loading...</div>
   <div class="load-bar"><div class="load-fill" id="bar"></div></div>
   <p class="sub" id="hugTxt">Sending all my love...</p>
   <button class="btn" id="hugBtn" style="display:none" onclick="poppers()">Receive hug 💕</button>
 </div>
 <div class="screen other" id="end">
   <div class="stars" id="st12"></div>
-  <div style="font-size:52px">🎂🎉💖</div>
-  <div class="title" style="font-size:34px">Happy Birthday!</div>
-  <div class="letter" style="margin-top:10px;max-height:240px;overflow-y:auto">
-    <p style="font-size:14.5px;line-height:1.55">My dearest friend,<br><br>On your special day I just want you to know how deeply grateful I am to have you in my life. You bring light into the room without even trying. Your kindness, your chaos, your quiet strength — everything about you makes the world softer.<br><br>Thank you for the late-night talks, the silly laughs, the times you believed in me when I didn’t, and for simply existing as you. I hope this year wraps you in the softest love, the biggest wins, and moments that make your heart feel full.<br><br>You are loved more than words can hold.<br><br>Forever your person 🫶</p>
+  <div style="font-size:60px">🎂🎉💖</div>
+  <div class="title" style="font-size:40px">Happy Birthday!</div>
+  <div class="letter" style="margin-top:12px;max-height:260px;overflow-y:auto">
+    <p style="font-size:15.5px;line-height:1.6">My dearest friend,<br><br>On your special day I just want you to know how deeply grateful I am to have you in my life. You bring light into the room without even trying. Your kindness, your chaos, your quiet strength — everything about you makes the world softer.<br><br>Thank you for the late-night talks, the silly laughs, the times you believed in me when I didn’t, and for simply existing as you. I hope this year wraps you in the softest love, the biggest wins, and moments that make your heart feel full.<br><br>You are loved more than words can hold.<br><br>Forever your person 🫶</p>
   </div>
-  <button class="btn" style="margin-top:12px" onclick="go('p')">Replay</button>
+  <button class="btn" style="margin-top:14px" onclick="go('p')">Replay</button>
 </div>
 </div>
 <script>
 const emojis=['⭐','✨','💛','💖','🌸','🎀','🐶','🐻','🍀','💫','🥰','🎈','🌙','🦋'];
-function stars(id){const el=document.getElementById(id);if(!el)return;for(let i=0;i<18;i++){const s=document.createElement('div');s.className='star';s.textContent=emojis[Math.floor(Math.random()*emojis.length)];s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.fontSize=(12+Math.random()*12)+'px';s.style.animationDelay=Math.random()*2+'s';s.style.color=['#a29bfe','#fd79a8','#74b9ff','#ffeaa7'][Math.floor(Math.random()*4)];el.appendChild(s)}}
+function stars(id){const el=document.getElementById(id);if(!el)return;for(let i=0;i<22;i++){const s=document.createElement('div');s.className='star';s.textContent=emojis[Math.floor(Math.random()*emojis.length)];s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.fontSize=(18+Math.random()*14)+'px';s.style.animationDelay=Math.random()*2+'s';s.style.color=['#a29bfe','#fd79a8','#74b9ff','#ffeaa7'][Math.floor(Math.random()*4)];el.appendChild(s)}}
 for(let i=1;i<=12;i++)stars('st'+i);
 let code='';const ok='2002';const dots=document.querySelectorAll('.dot');const keys=document.getElementById('keys');
-['1','2','3','4','5','6','7','8','9','','0','⌫'].forEach(k=>{const b=document.createElement('div');b.className='key';b.textContent=k||' ';if(k==='⌫')b.style.fontSize='22px';b.onclick=()=>{if(k==='⌫'){if(code.length){code=code.slice(0,-1);dots[code.length].classList.remove('on')}return}if(!k||code.length>=4)return;code+=k;dots[code.length-1].classList.add('on');if(code.length===4){setTimeout(()=>{if(code===ok)go('hey');else{document.getElementById('p').classList.add('shake');setTimeout(()=>document.getElementById('p').classList.remove('shake'),350)}code='';dots.forEach(d=>d.classList.remove('on'))},300)}};keys.appendChild(b)});
+['1','2','3','4','5','6','7','8','9','','0','⌫'].forEach(k=>{const b=document.createElement('div');b.className='key';b.textContent=k||' ';if(k==='⌫')b.style.fontSize='24px';b.onclick=()=>{if(k==='⌫'){if(code.length){code=code.slice(0,-1);dots[code.length].classList.remove('on')}return}if(!k||code.length>=4)return;code+=k;dots[code.length-1].classList.add('on');if(code.length===4){setTimeout(()=>{if(code===ok)go('hey');else{document.getElementById('p').classList.add('shake');setTimeout(()=>document.getElementById('p').classList.remove('shake'),350)}code='';dots.forEach(d=>d.classList.remove('on'))},300)}};keys.appendChild(b)});
 function go(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');if(id==='hug')startHug();if(id==='song'){document.getElementById('yt').src='https://www.youtube.com/embed/JpSFL_bHtBA?autoplay=1&rel=0'}}
 function startHug(){const bar=document.getElementById('bar');const txt=document.getElementById('hugTxt');const btn=document.getElementById('hugBtn');bar.style.width='0%';btn.style.display='none';let w=0;const msgs=['Sending all my love...','Wrapping you tight...','Almost there...','Hug ready!! 🤗'];const t=setInterval(()=>{w+=2;bar.style.width=w+'%';if(w>30)txt.textContent=msgs[1];if(w>60)txt.textContent=msgs[2];if(w>85)txt.textContent=msgs[3];if(w>=100){clearInterval(t);btn.style.display='inline-block'}},35)}
-function poppers(){const cols=['#fd79a8','#a29bfe','#74b9ff','#ffeaa7','#55efc4','#ff7675','#fdcb6e'];for(let i=0;i<70;i++){const c=document.createElement('div');c.className='confetti';c.style.left=Math.random()*100+'%';c.style.background=cols[Math.floor(Math.random()*cols.length)];c.style.animationDuration=(1.8+Math.random()*2.2)+'s';c.style.animationDelay=Math.random()*0.5+'s';c.style.width=(7+Math.random()*8)+'px';c.style.height=(10+Math.random()*10)+'px';c.style.borderRadius=Math.random()>.5?'50%':'2px';document.querySelector('.phone').appendChild(c);setTimeout(()=>c.remove(),4500)}setTimeout(()=>go('end'),800)}
+function poppers(){const cols=['#fd79a8','#a29bfe','#74b9ff','#ffeaa7','#55efc4','#ff7675','#fdcb6e'];for(let i=0;i<80;i++){const c=document.createElement('div');c.className='confetti';c.style.left=Math.random()*100+'%';c.style.background=cols[Math.floor(Math.random()*cols.length)];c.style.animationDuration=(1.8+Math.random()*2.2)+'s';c.style.animationDelay=Math.random()*0.5+'s';c.style.width=(9+Math.random()*10)+'px';c.style.height=(12+Math.random()*12)+'px';c.style.borderRadius=Math.random()>.5?'50%':'2px';document.querySelector('.phone').appendChild(c);setTimeout(()=>c.remove(),4500)}setTimeout(()=>go('end'),800)}
 </script>
 </body>
 </html>
